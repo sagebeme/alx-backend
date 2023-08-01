@@ -18,12 +18,12 @@ class Config:
 
 
 app.config.from_object(Config)
-app.url_map.strict_slashes = False
 
 
 @babel.localeselector
 def get_locale():
-    """Determine the best match for the supported
+    """
+    Determine the best match for the supported
     languages using request.accept_languages
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
@@ -32,10 +32,10 @@ def get_locale():
 @app.route('/')
 def index():
     """
-    render 2-index.html
+    render 3-index.html
     """
     return render_template('3-index.html')
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5007)
+    app.run()
